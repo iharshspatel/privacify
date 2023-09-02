@@ -10,7 +10,7 @@
         body{
           font-family: Arial, sans-serif;
           font-size: 75%;
-          width: 210px;
+          width: 250px;
           padding: 10px;
           -moz-user-select: none;
           user-select: none;
@@ -111,20 +111,18 @@
           margin-right: 5px;
         }
       </style>
-    </head>
-    <body>
-      <img src="../images/icon32.png" alt="">
+
       <h1>Privacify</h1>
       <hr>
       <span id="mainContent">
         <h2 style="margin-bottom: 10px;">Toggle</h2><input type="checkbox" id="switch" /><label for="switch">Toggle</label><br>
-        <h2 style="margin-top: 10px;margin-bottom: 5px;">Settings</h2>
-        <p>Gmail Sender<input type="checkbox" id="gmailSender"><label for="gmailSender" title="Blur Sender Name"> Blur Sender Name</label></p>
-        <p>gmailSubject<input type="checkbox" id="gmailSubject"><label for="gmailSubject" title="Blurs all Subject"> Last messages preview</label></p>
+        <h2 style="margin-top: 10px;margin-bottom: 5px;">Gmail Settings</h2>
+        <p>Name<input type="checkbox" id="gmailSender"><label for="gmailSender" title="Blur Sender Name"> Blur Sender Name</label></p>
+        <p>Subject<input type="checkbox" id="gmailSubject"><label for="gmailSubject" title="Blurs all Subject"> Last messages preview</label></p>
 
+        <h2 style="margin-top: 10px;margin-bottom: 5px;">WhatsApp Settings</h2>
         <p>WhatsApp Profile<input type="checkbox" id="waProfile"><label for="waProfile" title="Blurs Profile"> Blurs Profile</label></p>
         <p>WhatsApp Message Preview<input type="checkbox" id="waMessagePreview"><label for="waMessagePreview" title="Blurs Message Preview"> Whatsapp Message Preview</label></p>
-
         <p>WhatsApp Message<input type="checkbox" id="waMessage"><label for="waMessage" title="Blurs Profile"> Blurs Messages</label></p>
         <p>WhatsApp  Name<input type="checkbox" id="waName"><label for="waName" title="Blurs Message Preview"> Whatsapp  Name</label></p>
       <span id="popupMessage"></span>

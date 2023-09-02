@@ -7,15 +7,11 @@ let waMessagePreview = document.getElementById('waMessagePreview');
 let waName = document.getElementById('waName');
 let waMessage = document.getElementById('waMessage');
 
-// Message functionality
 let mainContent = document.getElementById('mainContent');
 let popupMessage = document.getElementById('popupMessage');
 
-// Get and set current version
   let version = chrome.runtime.getManifest().version;
 
-
-// Set current state in popup
 chrome.storage.sync.get([
     'on',
     'gmailSender',
@@ -39,7 +35,7 @@ chrome.storage.sync.get([
 button.addEventListener('change', function() {
   chrome.storage.sync.set({on: this.checked});
 });
-// Update settings values
+
 gmailSender.addEventListener('change', function() {
   chrome.storage.sync.set({gmailSender: this.checked});
 });
