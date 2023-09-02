@@ -1,0 +1,30 @@
+._2AOIt div:first-child /*normal message*/,
+._1BOF7 ._1sykI /*blue info bar*/
+{
+  filter: blur(8px) grayscale(1);
+  transition-delay: 0s;
+}
+._2AOIt /*normal message more padding*/
+{
+  padding-right: 40px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+._1Fw-f /*sticker*/
+{
+  filter: blur(20px) grayscale(1);
+  transition-delay: 0s;
+}
+._2AOIt:hover div:first-child /*normal message*/,
+._1Fw-f:hover, /*sticker*/
+._1BOF7 ._1sykI:hover /*blue info bar*/
+{
+  filter: blur(0) grayscale(0);
+  transition-delay: 0.3s;
+}
+._1Fw-f /*set pseudo background on sticker*/
+{
+  background-color: var(--incoming-background) !important;
+  border-radius: 7.5px !important;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13) !important;
+}

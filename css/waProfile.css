@@ -1,0 +1,25 @@
+._13jwn /*profile pic message list*/,
+._2pr2H /*message view profile pic*/,
+._3WByx /*self profile pic*/,
+.stnyektq /*group chat msg profile pic*/
+{
+  filter: blur(7px) grayscale(1);
+  transition-delay: 0s;
+}
+.pz0xruzv /*Details direct profile pic*/,
+.njub1g37 /*Details group profile pic*/
+{
+  filter: blur(12px) grayscale(1);
+  transition-delay: 0s;
+}
+
+._13jwn:hover /*profile pic message list*/,
+._2pr2H:hover /*message view profile pic*/,
+._3WByx:hover /*self profile pic*/,
+.stnyektq:hover /*group chat msg profile pic*/,
+.pz0xruzv:hover /*Details direct profile pic*/,
+.njub1g37:hover /*Details group profile pic*/
+{
+  filter: blur(0) grayscale(0);
+  transition-delay: 0.3s;
+}

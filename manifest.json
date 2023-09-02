@@ -1,0 +1,50 @@
+{
+  "name": "Privacify - One Stop Solution",
+  "version": "0.0.1",
+  "description": "Protect your privacy so that you can focus on things that really matters.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions":["https://mail.google.com/*", "https://web.whatsapp.com/"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [ "css/gmailSender.css" , "css/gmailSubject.css" ],
+      "matches": [ "https://mail.google.com/*" ]
+    },
+    {
+      "resources": [ "css/waProfile.css" ],
+      "matches": [ "https://web.whatsapp.com/*" ]
+    }
+  ],
+  "content_scripts": [
+   {
+     "matches": ["https://mail.google.com/*" , "https://web.whatsapp.com/*"],
+     "js": ["load.js"]
+   }
+  ],
+  "action": {
+   "default_title": "Privacify - One Stop Solution",
+   "default_popup": "popup/popup.html",
+   "default_icon": {
+     "16": "images/icon16.png",
+     "24": "images/icon24.png",
+     "32": "images/icon32.png"
+   }
+  },
+  "commands": {
+    "toggle": {
+      "suggested_key": {
+        "default": "Alt+X"
+      },
+      "description": "Toggle On/Off"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "manifest_version": 3
+}
