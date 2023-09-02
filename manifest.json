@@ -1,5 +1,5 @@
 {
-  "name": "Privacify - One Stop Solution",
+  "name": "Privacify",
   "version": "0.0.1",
   "description": "Protect your privacy so that you can focus on things that really matters.",
   "permissions": ["storage", "activeTab", "scripting"],
