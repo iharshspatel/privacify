@@ -2,6 +2,8 @@
 let button = document.getElementById('switch');
 let gmailSender = document.getElementById('gmailSender');
 let gmailSubject = document.getElementById('gmailSubject');
+let gmailContent =  document.getElementById('gmailContent');
+
 let waProfile = document.getElementById('waProfile');
 let waMessagePreview = document.getElementById('waMessagePreview');
 let waName = document.getElementById('waName');
@@ -24,6 +26,7 @@ chrome.storage.sync.get([
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       gmailSubject.checked=data.gmailSubject;
       gmailSender.checked=data.gmailSender;
+      gmailContent.checked=data.gmailContent;
       button.checked=data.on;
       waProfile.checked = data.waProfile;
       waMessagePreview.checked = data.waMessagePreview;
@@ -58,4 +61,9 @@ waName.addEventListener('change',function(){
 waMessage.addEventListener('change', function(){
   chrome.storage.sync.set({waMessage: this.checked})
 })
+
+gmailContent.addEventListener('change', function(){
+  chrome.storage.sync.set({gmailContent: this.checked})
+})
+
 

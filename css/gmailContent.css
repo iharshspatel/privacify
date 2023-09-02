@@ -1,0 +1,11 @@
+.a3s.aiL
+{
+  filter: blur(12px) grayscale(1);
+  transition-delay: 0s;
+}
+
+.a3s.aiL:hover
+{
+  filter: blur(0) grayscale(0);
+  transition-delay: 0.3s;
+}

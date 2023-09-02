@@ -5,7 +5,6 @@ div[data-testid="chat-subtitle"] /*Top group user preview*/,
 .q9lllk4z /*Details username */,
 .kjemk6od /*Starred messages username*/,
 .qt60bha0 /*About user phone number*/,
-._8nE1Y ._2KKXC /*About user*/,
 ._3IzYj /*Message in chat*/
 {
   filter: blur(5px) grayscale(1);
@@ -19,7 +18,6 @@ div[data-testid="chat-subtitle"]:hover /*Top group user preview*/,
 .q9lllk4z:hover /*Details username */,
 .kjemk6od:hover /*Starred messages username*/,
 .qt60bha0:hover /*About user phone number*/,
-._8nE1Y:hover ._2KKXC /*About user*/,
 ._3IzYj:hover /*Message in chat*/
 {
   filter: blur(0) grayscale(0);

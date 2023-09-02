@@ -3,6 +3,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
         'on',
         'gmailSender',
         'gmailSubject',
+        'gmailContent',
         'waProfile',
         'waMessagePreview',
         'waMessage',
@@ -11,6 +12,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
         data.on == null && chrome.storage.sync.set({on: true});
         data.gmailSender == null && chrome.storage.sync.set({gmailSender: true});
         data.gmailSubject == null && chrome.storage.sync.set({gmailSubject: true});
+        data.gmailContent == null && chrome.storage.sync.set({gmailContent: true});
         data.waProfile == null && chrome.storage.sync.set({waProfile: true});
         data.waMessage == null && chrome.storage.sync.set({waMessage: true});
         data.waMessagePreview == null && chrome.storage.sync.set({waMessagePreview: true});
@@ -25,6 +27,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
               'on',
               'gmailSender',
               'gmailSubject',
+              'gmailContent'
             ], function(data){
 
               Object.keys(data).forEach((key)=>{
@@ -33,7 +36,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
 
               if(data.on){
                 Object.keys(data).forEach((key)=>{
-                  console.log(key,tab.id,data[key]);
                   blurHandler(key,tab.id,data[key])
                 })
               }
@@ -69,15 +71,13 @@ chrome.runtime.onInstalled.addListener(function(details) {
   })
 
   chrome.runtime.onMessage.addListener(async function(t){
-
-    console.log("RELOAD =============")
-
     chrome.tabs.query({url: "https://mail.google.com/*"}, function(tabs) {
       if (tabs.length !== 0) tabs.forEach(function(tab){
           chrome.storage.sync.get([
             'on',
             'gmailSender',
             'gmailSubject',
+            'gmailContent'
           ], function(data){
 
             Object.keys(data).forEach((key)=>{
@@ -110,7 +110,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
 
               if(data.on){
                 Object.keys(data).forEach((key)=>{
-                  console.log(key,data[key],"wa tab");
                   blurHandler(key,tab.id,data[key])
                 })
               }
