@@ -7,16 +7,6 @@
   "background": {
     "service_worker": "background.js"
   },
-  "web_accessible_resources": [
-    {
-      "resources": [ "css/gmailSender.css" , "css/gmailSubject.css" ],
-      "matches": [ "https://mail.google.com/*" ]
-    },
-    {
-      "resources": [ "css/waProfile.css" ],
-      "matches": [ "https://web.whatsapp.com/*" ]
-    }
-  ],
   "content_scripts": [
    {
      "matches": ["https://mail.google.com/*" , "https://web.whatsapp.com/*"],

@@ -13,6 +13,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
         data.gmailSubject == null && chrome.storage.sync.set({gmailSubject: true});
         data.waProfile == null && chrome.storage.sync.set({waProfile: true});
         data.waMessage == null && chrome.storage.sync.set({waMessage: true});
+        data.waMessagePreview == null && chrome.storage.sync.set({waMessagePreview: true});
         data.waName == null && chrome.storage.sync.set({waName: true});
     });
   });
