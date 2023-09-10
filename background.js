@@ -1,134 +1,154 @@
-chrome.runtime.onInstalled.addListener(function(details) {
-    chrome.storage.sync.get([
-        'on',
-        'gmailSender',
-        'gmailSubject',
-        'gmailContent',
-        'waProfile',
-        'waMessagePreview',
-        'waMessage',
-        'waName'
-      ], function(data) {
-        data.on == null && chrome.storage.sync.set({on: true});
-        data.gmailSender == null && chrome.storage.sync.set({gmailSender: true});
-        data.gmailSubject == null && chrome.storage.sync.set({gmailSubject: true});
-        data.gmailContent == null && chrome.storage.sync.set({gmailContent: true});
-        data.waProfile == null && chrome.storage.sync.set({waProfile: true});
-        data.waMessage == null && chrome.storage.sync.set({waMessage: true});
-        data.waMessagePreview == null && chrome.storage.sync.set({waMessagePreview: true});
-        data.waName == null && chrome.storage.sync.set({waName: true});
-    });
-  });
- 
-  chrome.storage.onChanged.addListener(async function(t){
-    chrome.tabs.query({url: "https://mail.google.com/*"}, function(tabs) {
-        if (tabs.length !== 0) tabs.forEach(function(tab){
-            chrome.storage.sync.get([
-              'on',
-              'gmailSender',
-              'gmailSubject',
-              'gmailContent'
-            ], function(data){
+const urls = {
+  gmail: "https://mail.google.com/*",
+  wa: "https://web.whatsapp.com/*",
+  ldn:"https://www.linkedin.com/*"
+}
 
-              Object.keys(data).forEach((key)=>{
-                blurHandler(key,tab.id,false)
-              })
+chrome.runtime.onInstalled.addListener(function (details) {
+  resetSyncStorage();
 
-              if(data.on){
-                Object.keys(data).forEach((key)=>{
-                  blurHandler(key,tab.id,data[key])
-                })
-              }
-            })
-        });
-    });
-  })
-
-  chrome.storage.onChanged.addListener(async function(t){
-    chrome.tabs.query({url: "https://web.whatsapp.com/*"}, function(tabs) {
-        if (tabs.length !== 0) tabs.forEach(function(tab){
-            chrome.storage.sync.get([
-              'on',
-              'waProfile',
-              'waMessagePreview',
-              'waMessage',
-              'waName'
-            ], function(data){
-
-              Object.keys(data).forEach((key)=>{
-                blurHandler(key,tab.id,false)
-              })
-
-              if(data.on){
-                Object.keys(data).forEach((key)=>{
-                  console.log(key,tab.id,data[key]);
-                  blurHandler(key,tab.id,data[key])
-                })
-              }
-            })
-        });
-    });
-  })
-
-  chrome.runtime.onMessage.addListener(async function(t){
-    chrome.tabs.query({url: "https://mail.google.com/*"}, function(tabs) {
-      if (tabs.length !== 0) tabs.forEach(function(tab){
-          chrome.storage.sync.get([
-            'on',
-            'gmailSender',
-            'gmailSubject',
-            'gmailContent'
-          ], function(data){
-
-            Object.keys(data).forEach((key)=>{
-              blurHandler(key,tab.id,false)
-            })
-
-            if(data.on){
-              Object.keys(data).forEach((key)=>{
-                blurHandler(key,tab.id,data[key])
-              })
-            }
-          })
-      });
+  chrome.storage.sync.get([
+    'on',
+    'gmail',
+    'wa'
+  ], function (data) {
+    data.on == null && chrome.storage.sync.set({ on: true });
+    data.gmail == null && chrome.storage.sync.set({
+      gmail: {
+        isActive:true,
+        label:'Gmail',
+        data:{
+          Content: {
+            label:'Content',
+            value:true
+          },
+          Sender:{
+            label:'Sender',
+            value:true
+          },
+          Subject: {
+            label:'Subject',
+            value:true
+          },
+          Attachments: {
+            label:'Attachments',
+            value:true
+          }
+        }
+      }
+    })
+    data.wa == null && chrome.storage.sync.set({
+      wa: {
+        isActive:false,
+        label:'WhatsApp',
+        data:{
+          GroupMembers:{
+            label:'Group Members',
+            value:true
+          },
+          MessagePreview: {
+            label:'Message Preview',
+            value:true
+          },
+          Message: {
+            label:'Message',
+            value:true
+          },
+          Name: {
+            label:'Name',
+            value:true
+          },
+          Profile: {
+            label:'Profile',
+            value:true
+          },
+        }
+      }
+    })
+    data.ldn == null && chrome.storage.sync.set({
+      ldn: {
+        isActive:false,
+        label:'LinkedIn',
+        data:{
+          Profile: {
+            label:'Profile',
+            value:true
+          },
+          Name:{
+            label:'Name',
+            value:true
+          },
+          MessagePreview:{
+            label:'Message Preview',
+            value:true
+          },
+          Message:{
+            label:"Messages",
+            value:true
+          }
+        }
+      }
+    })
   });
 
-
-    chrome.tabs.query({url: "https://web.whatsapp.com/*"}, function(tabs) {
-        if (tabs.length !== 0) tabs.forEach(function(tab){
-            chrome.storage.sync.get([
-              'on',
-              'waProfile',
-              'waMessagePreview',
-              'waMessage',
-              'waName'
-            ], function(data){
-
-              Object.keys(data).forEach((key)=>{
-                blurHandler(key,tab.id,false)
-              })
-
-              if(data.on){
-                Object.keys(data).forEach((key)=>{
-                  blurHandler(key,tab.id,data[key])
-                })
-              }
-            })
-        });
-    });
+  Object.keys(urls).forEach((plateform)=>{
+    tabHandler(plateform, urls[plateform])
   })
+  
+});
 
-  async function blurHandler(key,id,isBlur){
-    if(isBlur){
-     await chrome.scripting.insertCSS({
-        files: [`css/${key}.css`],
-        target: { tabId: id }, 
-      })
-    }
-    else{
-     await chrome.scripting.removeCSS({
-        files: [`css/${key}.css`],
-        target: { tabId: id }, 
-      })
-    }
+chrome.storage.onChanged.addListener(async function (t) {
+  Object.keys(urls).forEach((plateform)=>{
+    tabHandler(plateform, urls[plateform])
+  })
+})
+
+chrome.runtime.onMessage.addListener(async function (t) {
+  Object.keys(urls).forEach((plateform)=>{
+    tabHandler(plateform, urls[plateform])
+  })
+})
+
+async function blurHandler(parentKey, key, id, isBlur) {
+  if (isBlur) {
+    await chrome.scripting.insertCSS({
+      files: [`css/${parentKey}${key}.css`],
+      target: { tabId: id },
+    })
   }
+  else {
+    await chrome.scripting.removeCSS({
+      files: [`css/${parentKey}${key}.css`],
+      target: { tabId: id },
+    })
+  }
+}
+
+function tabHandler(plateform, url) {
+  chrome.tabs.query({ url: url }, function (tabs) {
+    if (tabs.length !== 0) tabs.forEach(function (tab) {
+      chrome.storage.sync.get([
+        'on',
+        plateform
+      ], function (data) {
+        data[plateform] && Object.keys(data[plateform]['data']).forEach((key) => {
+          blurHandler(plateform, key, tab.id, false)
+        })
+
+        if (data.on) {
+          data[plateform] &&  Object.keys(data[plateform]['data']).forEach((key) => {
+            blurHandler(plateform, key, tab.id, data[plateform]['data'][key]['value'])
+          })
+        }
+      })
+    });
+  });
+}
+
+function resetSyncStorage() {
+  chrome.storage.sync.clear(function() {
+    console.log('Sync storage data has been cleared.');
+  });
+}
+
+

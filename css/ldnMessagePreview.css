@@ -1,0 +1,23 @@
+
+.msg-conversation-card__message-snippet{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .msg-conversation-card__message-snippet:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }
+
+
+  .msg-overlay-list-bubble__message-snippet--v2{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .msg-overlay-list-bubble__message-snippet--v2:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }

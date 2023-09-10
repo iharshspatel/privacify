@@ -20,3 +20,27 @@
   filter: blur(0) grayscale(0);
   transition-delay: 0.3s;
 }
+
+
+.gE.hI{
+  filter: blur(12px) grayscale(1);
+  transition-delay: 0s;
+}
+
+.gE.hI:hover
+{
+  filter: blur(0) grayscale(0);
+  transition-delay: 0.3s;
+}
+
+.aCi{
+  filter: blur(12px) grayscale(1);
+  transition-delay: 0s;
+}
+
+.aCi:hover
+{
+  filter: blur(0) grayscale(0);
+  transition-delay: 0.3s;
+}
+

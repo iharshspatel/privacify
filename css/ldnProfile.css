@@ -1,0 +1,22 @@
+/* .presence-entity */
+
+.presence-entity{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .presence-entity:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }
+
+.ember-view.msg-s-event-listitem__link{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+}
+
+.ember-view.msg-s-event-listitem__link:hover{
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+}

@@ -1,15 +1,15 @@
 {
-  "name": "Privacify",
-  "version": "0.0.1",
-  "description": "Protect your privacy so that you can focus on things that really matters.",
-  "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions":["https://mail.google.com/*", "https://web.whatsapp.com/"],
+  "name": "Privacify : Your Ultimate Privacy Guardian for WhatsApp, Gmail & LinkedIn ",
+  "version": "0.0.2",
+  "description": "Easily Blur Your Communication Tools for Secure Online Meetings and Public Spaces",
+  "permissions": ["storage", "activeTab", "scripting" , "tabs"],
+  "host_permissions":["https://mail.google.com/*", "https://web.whatsapp.com/", "https://www.linkedin.com/*"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
    {
-     "matches": ["https://mail.google.com/*" , "https://web.whatsapp.com/*"],
+     "matches": ["https://mail.google.com/*" , "https://web.whatsapp.com/*", "https://www.linkedin.com/*"],
      "js": ["load.js"]
    }
   ],

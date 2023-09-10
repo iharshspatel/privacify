@@ -1,0 +1,11 @@
+.p357zi0d.r15c9g6i.g4oj0cdv.ovllcyds.l0vqccxk.pm5hny62
+{
+  filter: blur(8px) grayscale(1);
+  transition-delay: 0s;
+}
+
+.p357zi0d.r15c9g6i.g4oj0cdv.ovllcyds.l0vqccxk.pm5hny62:hover /*message preview*/
+{
+  filter: blur(0) grayscale(0);
+  transition-delay: 0.3s;
+}

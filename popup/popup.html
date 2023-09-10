@@ -1,132 +1,30 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="UTF-8">
-      <style>
-        *{
-          margin: 0;
-          padding: 0;
-        }
-        body{
-          font-family: Arial, sans-serif;
-          font-size: 75%;
-          width: 250px;
-          padding: 10px;
-          -moz-user-select: none;
-          user-select: none;
-        }
-        hr{
-          border: 0.5px solid #dedede;
-          margin: 10px 0;
-        }
-        img{
-          float: left;
-          margin-left: 10px;
-          margin-right: 15px;
-        }
-        h1{
-          font-size: larger;
-          margin-bottom: 5px;
-          display: block;
-        }
-        h2{
-          font-size: small;
-          display: inline-block;
-        }
-        p{
-          font-size: small;
-          padding: 10px 5px;
-          border-top: 1px solid #dedede;
-        }
-        button {
-          height: 25px;
-          width: 70px;
-          outline: none;
-          margin-bottom: 15px;
-        }
-        a{
-          color: #00587f;
-          text-decoration: none;
-        }
-        a:hover{
-          text-decoration: underline;
-        }
-        #footer{
-          clear: both;
-        }
-        #footer p{
-          padding: 0;
-          padding-top: 13px;
-          font-size: smaller;
-          text-align: center;
-        }
-        #popupMessage{
-          font-size: small;
-          line-height: 1.7em;
-        }
-        #popupMessageButton{
-          float: right;
-          margin: 10px;
-        }
-        input[type=checkbox]{
-          height: 0;
-          width: 0;
-          visibility: hidden;
-          position: absolute;
-        }
-        label {
-          cursor: pointer;
-          text-indent: -9999px;
-          width: 40px;
-          height: 20px;
-          background: #cacaca;
-          display: block;
-          border-radius: 100px;
-          position: relative;
-          top: -2px;
-          float: right;
-        }
-        label:after {
-          content: '';
-          position: absolute;
-          top: 5px;
-          left: 5px;
-          width: 10px;
-          height: 10px;
-          background: #fff;
-          border-radius: 90px;
-          transition: 0.3s;
-        }
-        input:checked + label {
-          background: #4A154B;
-        }
-        input:checked + label:after {
-          left: calc(100% - 5px);
-          transform: translateX(-100%);
-        }
-        label:active:after {
-          width: 10px;
-        }
-        label[for="switch"]{
-          margin-right: 5px;
-        }
-      </style>
-
-      <h1>Privacify</h1>
-      <hr>
-      <span id="mainContent">
-        <h2 style="margin-bottom: 10px;">Toggle</h2><input type="checkbox" id="switch" /><label for="switch">Toggle</label><br>
-        <h2 style="margin-top: 10px;margin-bottom: 5px;">Gmail Settings</h2>
-        <p>Name<input type="checkbox" id="gmailSender"><label for="gmailSender" title="Blur Sender Name"> Blur Sender Name</label></p>
-        <p>Subject<input type="checkbox" id="gmailSubject"><label for="gmailSubject" title="Blurs all Subject"> Last messages preview</label></p>
-        <p>Content<input type="checkbox" id="gmailContent"><label for="gmailContent" title="Blurs Content">   Blur Content of Gmail</label></p>
-
-        <h2 style="margin-top: 10px;margin-bottom: 5px;">WhatsApp Settings</h2>
-        <p>WhatsApp Profile<input type="checkbox" id="waProfile"><label for="waProfile" title="Blurs Profile"> Blurs Profile</label></p>
-        <p>WhatsApp Message Preview<input type="checkbox" id="waMessagePreview"><label for="waMessagePreview" title="Blurs Message Preview"> Whatsapp Message Preview</label></p>
-        <p>WhatsApp Message<input type="checkbox" id="waMessage"><label for="waMessage" title="Blurs Profile"> Blurs Messages</label></p>
-        <p>WhatsApp  Name<input type="checkbox" id="waName"><label for="waName" title="Blurs Message Preview"> Whatsapp  Name</label></p>
-      <span id="popupMessage"></span>
-      <script src="popup.js"></script>
-    </body>
-  </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="platformContainer">
+            <h3>Platforms</h3>
+            <ul id="platformList">
+                <!-- Platform names will be added here dynamically -->
+            </ul>
+        </div>
+        <div class="toggleContainer">
+            <h3>Toggles</h3>
+            <div id="toggleList">
+                <!-- Toggle switches for active platforms will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span class="footer-logo"> © Privacify - Your ultimate Privacy Gaurdian. </span>
+        <span class="footer-review">Please help us by giving feedback <a target="_blank" href="https://chrome.google.com/webstore/detail/privacify/bjdjaoemeajfpbiieodhebppioahjimb">Here</a> </span>
+    </footer>
+    <script src="popup.js"></script>
+</body>
+</html>

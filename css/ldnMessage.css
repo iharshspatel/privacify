@@ -1,0 +1,12 @@
+/* msg-s-event-listitem__message-bubble */
+
+.msg-s-event-listitem__message-bubble{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .msg-s-event-listitem__message-bubble:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }

@@ -1,0 +1,36 @@
+.msg-conversation-card__row.msg-conversation-card__title-row{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .msg-conversation-card__row.msg-conversation-card__title-row:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }
+
+  /* msg-s-message-group__profile-link */
+
+  .msg-s-message-group__profile-link{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .msg-s-message-group__profile-link:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }
+
+  /* msg-conversation-listitem__participant-names */
+
+  .msg-conversation-listitem__participant-names{
+    filter: blur(12px) grayscale(1);
+    transition-delay: 0s;
+  }
+  
+  .msg-conversation-listitem__participant-names:hover
+  {
+    filter: blur(0) grayscale(0);
+    transition-delay: 0.3s;
+  }
