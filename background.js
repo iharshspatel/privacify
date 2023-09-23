@@ -17,7 +17,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
       gmail: {
         isActive:true,
         label:'Gmail',
+        dataSequence:['Enabled', 'Content', 'Sender', 'Subject', 'Attachments'],
         data:{
+          Enabled:{
+            label:'Enabled',
+            value:true
+          },
           Content: {
             label:'Content',
             value:true
@@ -41,7 +46,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
       wa: {
         isActive:false,
         label:'WhatsApp',
+        dataSequence:['Enabled', 'GroupMembers', 'MessagePreview', 'Message', 'Name', 'Profile' ],
         data:{
+          Enabled:{
+            label:'Enabled',
+            value:true
+          },
           GroupMembers:{
             label:'Group Members',
             value:true
@@ -69,7 +79,12 @@ chrome.runtime.onInstalled.addListener(function (details) {
       ldn: {
         isActive:false,
         label:'LinkedIn',
+        dataSequence:['Enabled', 'Profile', 'Name', 'MessagePreview', 'Message' ],
         data:{
+          Enabled:{
+            label:'Enabled',
+            value:true
+          },
           Profile: {
             label:'Profile',
             value:true
@@ -131,12 +146,12 @@ function tabHandler(plateform, url) {
         'on',
         plateform
       ], function (data) {
-        data[plateform] && Object.keys(data[plateform]['data']).forEach((key) => {
+        data[plateform] && data[plateform]['dataSequence'].forEach((key) => {
           blurHandler(plateform, key, tab.id, false)
         })
 
-        if (data.on) {
-          data[plateform] &&  Object.keys(data[plateform]['data']).forEach((key) => {
+        if (data && data[plateform] && data[plateform]['data']['Enabled']['value']) {
+          data[plateform] &&  data[plateform]['dataSequence'].forEach((key) => {
             blurHandler(plateform, key, tab.id, data[plateform]['data'][key]['value'])
           })
         }

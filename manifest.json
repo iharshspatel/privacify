@@ -1,5 +1,5 @@
 {
-  "name": "Privacify : Your Ultimate Privacy Guardian for WhatsApp, Gmail & LinkedIn ",
+  "name": "Privacify : Ultimate Privacy Guardian",
   "version": "0.0.2",
   "description": "Easily Blur Your Communication Tools for Secure Online Meetings and Public Spaces",
   "permissions": ["storage", "activeTab", "scripting" , "tabs"],

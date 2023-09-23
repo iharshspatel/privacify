@@ -36,7 +36,7 @@ function createSliderToggles() {
             toggleContainer.className = "toggleContainer";
             toggleList.appendChild(toggleContainer);
 
-            for (const key in config[platform].data) {
+            config[platform]['dataSequence'].forEach((key)=>{
                 const toggleBox = document.createElement("div");
                 toggleBox.className = "toggleBox";
 
@@ -62,7 +62,7 @@ function createSliderToggles() {
                 toggleBox.appendChild(sliderToggle);
                 toggleContainer.appendChild(toggleBox);
             }
-        }
+        )}
     }
 }
 
