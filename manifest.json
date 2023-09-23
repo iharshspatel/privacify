@@ -1,6 +1,6 @@
 {
   "name": "Privacify : Ultimate Privacy Guardian",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Easily Blur Your Communication Tools for Secure Online Meetings and Public Spaces",
   "permissions": ["storage", "activeTab", "scripting" , "tabs"],
   "host_permissions":["https://mail.google.com/*", "https://web.whatsapp.com/", "https://www.linkedin.com/*"],
